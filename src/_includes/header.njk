@@ -2,7 +2,6 @@
   <div class="contenedor">
     <a class="marca" href="/">
       <img src="/assets/img/logo.png" alt="{{ site.nombre }}">
-      <span>{{ site.nombre }}</span>
     </a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav aria-label="Navegación principal">
@@ -14,8 +13,8 @@
         {% endfor %}
       </ul>
     </nav>
-    <button id="toggle-lectura-facil" class="boton-accesibilidad" aria-pressed="false" title="Cambia la tipografía del sitio a OpenDyslexic, pensada para facilitar la lectura">
-      Aa <span class="texto-completo">Lectura fácil</span>
+    <button id="toggle-lectura-facil" class="boton-accesibilidad" aria-pressed="false" aria-label="Activar lectura fácil" title="Cambia la tipografía del sitio a OpenDyslexic, pensada para facilitar la lectura">
+      Aa
     </button>
   </div>
 </header>
