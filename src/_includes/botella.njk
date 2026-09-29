@@ -1,0 +1,12 @@
+---
+layout: base.njk
+---
+<article class="articulo-botella contenedor">
+  <a class="volver" href="/botellas/">← Volver a Botellas</a>
+  {% if numero %}<p class="etiqueta">Botella #{{ numero }}</p>{% endif %}
+  <h1>{{ titulo }}</h1>
+  <p class="meta">{{ date | fechaLarga }}</p>
+  <div class="cuerpo">
+    {{ content | safe }}
+  </div>
+</article>

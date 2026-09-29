@@ -1,0 +1,12 @@
+{
+  "name": "botellas-por-el-mar",
+  "version": "1.0.0",
+  "description": "Sitio de Botellas por el mar",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

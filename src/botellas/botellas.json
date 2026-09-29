@@ -1,0 +1,4 @@
+{
+  "layout": "botella.njk",
+  "permalink": "/botellas/{{ titulo | slugify }}/"
+}

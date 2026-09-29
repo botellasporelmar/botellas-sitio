@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ titulo }}{% if titulo %} · {% endif %}{{ site.nombre }}</title>
+  <meta name="description" content="{{ descripcion or site.descripcion }}">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/assets/img/logo-negro.png">
+</head>
+<body>
+  {% include "header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script>
+    var toggle = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".nav-principal");
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        var abierto = nav.classList.toggle("abierto");
+        toggle.setAttribute("aria-expanded", abierto);
+      });
+    }
+
+    (function () {
+      var boton = document.getElementById("toggle-lectura-facil");
+      if (!boton) return;
+      var ACTIVA = "lectura-facil";
+      var activar = function (on) {
+        document.body.classList.toggle(ACTIVA, on);
+        boton.setAttribute("aria-pressed", on ? "true" : "false");
+        try {
+          localStorage.setItem(ACTIVA, on ? "1" : "0");
+        } catch (e) {}
+      };
+      var guardado = "0";
+      try {
+        guardado = localStorage.getItem(ACTIVA) || "0";
+      } catch (e) {}
+      activar(guardado === "1");
+      boton.addEventListener("click", function () {
+        activar(!document.body.classList.contains(ACTIVA));
+      });
+    })();
+  </script>
+</body>
+</html>

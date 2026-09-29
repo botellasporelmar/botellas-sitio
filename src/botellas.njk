@@ -1,0 +1,25 @@
+---
+layout: base.njk
+titulo: Botellas
+permalink: /botellas/
+---
+<section class="contenedor">
+  <div class="franja-titulo" style="text-align:left; margin-bottom:32px; max-width:none;">
+    <h1>Botellas</h1>
+    <p class="lead">Enlaces a botellas y contenido extra.</p>
+  </div>
+
+  {% if collections.botellas.length %}
+  <div class="rejilla-botellas">
+    {% for botella in collections.botellas %}
+    <a class="tarjeta-botella" href="{{ botella.data.enlace_instagram or botella.url }}" {% if botella.data.enlace_instagram %}target="_blank" rel="noopener"{% endif %}>
+      {% if botella.data.numero %}<span class="etiqueta">Botella #{{ botella.data.numero }}{% if botella.data.enlace_instagram %} · en Instagram{% endif %}</span>{% endif %}
+      <h3>{{ botella.data.titulo }}</h3>
+      <p>{{ botella.data.resumen }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="lead">Todavía no hay botellas publicadas — la primera está por llegar.</p>
+  {% endif %}
+</section>

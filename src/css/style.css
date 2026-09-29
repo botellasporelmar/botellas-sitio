@@ -1,0 +1,575 @@
+/* =========================================================
+   Botellas por el mar — estilos base
+   Paleta y tipografías: ver variables abajo.
+   La fuente de títulos (--font-display) es un PLACEHOLDER
+   (Caveat, de Google Fonts) hasta reemplazar por la fuente
+   real de marca — ver nota al pie de este archivo.
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;500;600;700&family=Delius&family=Caveat:wght@500;600&display=swap");
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/assets/fonts/opendyslexic/opendyslexic-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/assets/fonts/opendyslexic/opendyslexic-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Paleta de marca */
+  --crema: #faf6ee;
+  --negro: #000000;
+  --blanco: #ffffff;
+  --turquesa-claro: #75cdd5;
+  --turquesa: #2abcc8;
+  --turquesa-fuerte: #30bbca;
+  --lila-claro: #ebd5f6;
+  --lila: #d9beed;
+  --navy: #1d4e6b;
+  --periwinkle: #a1b8f8;
+
+  /* Roles semánticos */
+  --color-fondo: var(--crema);
+  --color-texto: var(--navy);
+  --color-texto-suave: #4a6d84;
+  --color-borde: rgba(29, 78, 107, 0.15);
+  --color-acento: var(--turquesa);
+  --color-acento-2: var(--lila);
+
+  /* Tipografía */
+  --font-body: "Lexend Deca", system-ui, sans-serif;
+  --font-display: "Delius", cursive; /* títulos — alternativa gratuita a "Dreaming Out Loud" (uso comercial restringido) */
+  --font-cita: "Caveat", cursive; /* citas y detalles pequeños */
+  --font-accesible: "OpenDyslexic", var(--font-body); /* modo lectura fácil */
+
+  --radius: 18px;
+  --max-width: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--navy);
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--color-texto-suave);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-borde);
+  background: var(--color-fondo);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.marca img {
+  height: 40px;
+  width: auto;
+}
+
+.marca span {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-principal {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-principal a:hover,
+.nav-principal a[aria-current="page"] {
+  background: var(--lila-claro);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.boton-accesibilidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-accesible);
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-borde);
+  background: var(--blanco);
+  color: var(--navy);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.boton-accesibilidad:hover {
+  background: var(--lila-claro);
+}
+
+.boton-accesibilidad[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--crema);
+  border-color: var(--navy);
+}
+
+body.lectura-facil {
+  --font-body: var(--font-accesible);
+}
+
+body.lectura-facil h1,
+body.lectura-facil h2,
+body.lectura-facil h3,
+body.lectura-facil .marca span {
+  font-family: var(--font-accesible);
+}
+
+@media (max-width: 720px) {
+  .nav-principal {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 16px;
+    left: 16px;
+    background: var(--blanco);
+    flex-direction: column;
+    border-radius: var(--radius);
+    box-shadow: 0 12px 32px rgba(29, 78, 107, 0.18);
+    padding: 12px;
+    gap: 2px;
+    transform-origin: top right;
+    transform: scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.15s ease;
+  }
+
+  .nav-principal.abierto {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    border: 1px solid var(--color-borde);
+    background: var(--blanco);
+    cursor: pointer;
+  }
+
+  .marca span {
+    display: none;
+  }
+
+  .boton-accesibilidad span.texto-completo {
+    display: none;
+  }
+
+  .site-header .contenedor {
+    flex-wrap: nowrap;
+  }
+}
+
+/* ---------- Botones / CTA ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-primario {
+  background: var(--navy);
+  color: var(--crema);
+}
+
+.boton-primario:hover {
+  background: #163d55;
+}
+
+.boton-secundario {
+  background: var(--turquesa-claro);
+  color: var(--navy);
+}
+
+.boton-secundario:hover {
+  background: var(--turquesa);
+}
+
+.boton-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.grupo-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Secciones genéricas ---------- */
+
+section {
+  padding: 64px 0;
+}
+
+.section-alt {
+  background: var(--blanco);
+}
+
+.franja-titulo {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+/* ---------- Hero (home) ---------- */
+
+.hero {
+  padding: 72px 0 48px;
+  text-align: center;
+}
+
+.hero .lead {
+  max-width: 560px;
+  margin: 0 auto 8px;
+}
+
+.subtitulo-hero {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--turquesa);
+  margin: 0 0 28px;
+}
+
+.hero .grupo-botones {
+  justify-content: center;
+}
+
+/* ---------- Tarjeta de botella ---------- */
+
+.tarjeta-botella {
+  display: block;
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-decoration: none;
+  color: var(--navy);
+  border: 1px solid var(--color-borde);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tarjeta-botella:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(29, 78, 107, 0.1);
+}
+
+.tarjeta-botella .etiqueta,
+.etiqueta {
+  display: inline-block;
+  font-family: var(--font-accesible);
+  font-size: 0.78rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--turquesa);
+  margin-bottom: 8px;
+}
+
+.tarjeta-botella h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.tarjeta-botella p {
+  color: var(--color-texto-suave);
+  margin-bottom: 0;
+}
+
+.rejilla-botellas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Página individual de botella ---------- */
+
+.articulo-botella {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 0 80px;
+}
+
+.articulo-botella .etiqueta {
+  display: block;
+}
+
+.articulo-botella .meta {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.articulo-botella .cuerpo {
+  font-size: 1.08rem;
+}
+
+.articulo-botella .cuerpo p {
+  margin-bottom: 1.3em;
+}
+
+.volver {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+}
+
+.volver:hover {
+  color: var(--navy);
+}
+
+/* ---------- Acompañamiento profesional ---------- */
+
+.rejilla-servicios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 720px) {
+  .rejilla-servicios {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tarjeta-servicio {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  padding: 28px;
+  border-top: 4px solid var(--turquesa);
+}
+
+.tarjeta-servicio:nth-child(2n) {
+  border-top-color: var(--lila);
+}
+
+.tarjeta-servicio h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.tarjeta-servicio p {
+  color: var(--color-texto-suave);
+  margin-bottom: 0;
+}
+
+.cta-contacto {
+  text-align: center;
+  background: var(--navy);
+  color: var(--crema);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  margin-top: 48px;
+}
+
+.cta-contacto h2 {
+  color: var(--crema);
+}
+
+.cta-contacto p {
+  color: rgba(250, 246, 238, 0.85);
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
+.cta-contacto .grupo-botones {
+  justify-content: center;
+}
+
+.cta-contacto .boton-primario {
+  background: var(--turquesa-claro);
+  color: var(--navy);
+}
+
+.cta-contacto .boton-outline {
+  color: var(--crema);
+  border-color: rgba(250, 246, 238, 0.6);
+}
+
+/* ---------- Sobre mí ---------- */
+
+.sobre-mi-intro {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.titulo-profesional {
+  display: inline-block;
+  background: var(--lila-claro);
+  color: var(--navy);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--color-borde);
+  text-align: center;
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.site-footer .enlaces {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Utilidades ---------- */
+
+.oculto-visual {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/*
+  NOTA SOBRE TIPOGRAFÍAS:
+  La fuente de marca para títulos era "Dreaming Out Loud", pero su
+  licencia es gratuita solo para uso personal (uso comercial requiere
+  permiso pago del diseñador). Se reemplazó por "Delius" (Google
+  Fonts, gratuita para cualquier uso), de estilo similar: trazo
+  grueso y desprolijo. Si en algún momento se gestiona el permiso
+  comercial de "Dreaming Out Loud", cambiar --font-display acá.
+*/

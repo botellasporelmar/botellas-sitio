@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+media_folder: "src/assets/img/botellas"
+public_folder: "/assets/img/botellas"
+
+locale: "es"
+
+collections:
+  - name: "botellas"
+    label: "Botellas"
+    label_singular: "Botella"
+    folder: "src/botellas"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: titulo
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Número de botella", name: "numero", widget: "number", required: false, hint: "Ej: 13 (el siguiente número de la secuencia)" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Resumen breve", name: "resumen", widget: "text", hint: "Aparece en las tarjetas de la lista de Botellas y en Inicio" }
+      - { label: "Link directo a Instagram", name: "enlace_instagram", widget: "string", required: false, hint: "Si completás esto, la tarjeta de esta botella lleva directo al posteo de Instagram (no abre página propia en el sitio). Dejalo vacío para las botellas con texto extendido." }
+      - { label: "Publicado", name: "publicado", widget: "boolean", default: true, hint: "Desmarcá esto para guardar un borrador sin publicarlo" }
+      - { label: "Texto completo", name: "body", widget: "markdown", required: false, hint: "Solo se usa si NO completaste el link de Instagram arriba. Nunca copies/pegues la placa del posteo tal cual — este texto tiene que sumar algo que el posteo no dice." }

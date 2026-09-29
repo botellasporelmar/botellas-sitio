@@ -1,0 +1,38 @@
+---
+layout: base.njk
+titulo: Inicio
+---
+<section class="hero contenedor">
+  <p class="titulo-profesional">{{ site.handle }}</p>
+  <h1>{{ site.nombre }}</h1>
+  <p class="lead">Hay mensajes que viajan hasta encontrar a quien los necesita.</p>
+  <p class="subtitulo-hero">Psicopedagogía + Maternidad</p>
+  <div class="grupo-botones">
+    <a class="boton boton-primario" href="/botellas/">Leer las botellas</a>
+    <a class="boton boton-outline" href="/acompanamiento/">Acompañamiento profesional</a>
+  </div>
+</section>
+
+{% set ultimaBotella = collections.botellas | first %}
+{% if ultimaBotella %}
+<section class="section-alt">
+  <div class="contenedor" style="max-width:640px;">
+    <p class="franja-titulo" style="margin-bottom:20px; text-align:left; max-width:none;"><strong>La última botella</strong></p>
+    <a class="tarjeta-botella" href="{{ ultimaBotella.data.enlace_instagram or ultimaBotella.url }}" {% if ultimaBotella.data.enlace_instagram %}target="_blank" rel="noopener"{% endif %}>
+      {% if ultimaBotella.data.numero %}<span class="etiqueta">Botella #{{ ultimaBotella.data.numero }}{% if ultimaBotella.data.enlace_instagram %} · en Instagram{% endif %}</span>{% endif %}
+      <h3>{{ ultimaBotella.data.titulo }}</h3>
+      <p>{{ ultimaBotella.data.resumen }}</p>
+    </a>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="contenedor cta-contacto">
+    <h2>Acompañamiento profesional</h2>
+    <p>Evaluaciones neuropsicológicas, tratamiento psicopedagógico, formaciones y consultorías para colegas e instituciones.</p>
+    <div class="grupo-botones">
+      <a class="boton boton-primario" href="/acompanamiento/">Conocer más</a>
+    </div>
+  </div>
+</section>

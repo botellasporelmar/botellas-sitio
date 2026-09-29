@@ -1,0 +1,16 @@
+{
+  "nombre": "Botellas por el mar",
+  "handle": "@botellasporelmar",
+  "url": "https://botellasporelmar.com.ar",
+  "descripcion": "Reflexiones, maternidad, lectura y psicopedagogía — mensajes que viajan hasta encontrar a quien los necesita.",
+  "whatsapp": "https://wa.me/5491178192603",
+  "whatsappDisplay": "+54 9 11 7819-2603",
+  "email": "botellasporelmar@gmail.com",
+  "instagram": "https://www.instagram.com/botellasporelmar/",
+  "nav": [
+    { "texto": "Inicio", "url": "/" },
+    { "texto": "Botellas", "url": "/botellas/" },
+    { "texto": "Sobre mí", "url": "/sobre-mi/" },
+    { "texto": "Acompañamiento profesional", "url": "/acompanamiento/" }
+  ]
+}
