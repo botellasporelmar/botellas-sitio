@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: botellasporelmar/botellas-sitio
   branch: main
 
 publish_mode: simple
