@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: botellasporelmar/botellas-sitio
+  branch: main
+
+publish_mode: simple
+media_folder: "src/assets/img/botellas"
+public_folder: "/assets/img/botellas"
+
+locale: "es"
+
+collections:
+  - name: "botellas"
+    label: "Botellas"
+    label_singular: "Botella"
+    folder: "src/botellas"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: titulo
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Número de botella", name: "numero", widget: "number", required: false, hint: "Ej: 13 (el siguiente número de la secuencia)" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Resumen breve", name: "resumen", widget: "text", hint: "Aparece en las tarjetas de la lista de Botellas y en Inicio" }
+      - { label: "Link directo a Instagram", name: "enlace_instagram", widget: "string", required: false, hint: "Link al posteo específico de esta botella. Si escribís también el Texto completo, la tarjeta abre la página propia y ahí aparece un botón 'Ver el posteo en Instagram'. Si dejás el Texto completo vacío, la tarjeta lleva directo al posteo." }
+      - { label: "Publicado", name: "publicado", widget: "boolean", default: true, hint: "Desmarcá esto para guardar un borrador sin publicarlo" }
+      - { label: "Texto completo", name: "body", widget: "markdown", required: false, hint: "Si lo completás, la botella tiene su propia página en el sitio. Nunca copies/pegues la placa del posteo tal cual — este texto tiene que sumar algo que el posteo no dice." }
