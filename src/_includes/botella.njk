@@ -6,6 +6,9 @@ layout: base.njk
   {% if numero %}<p class="etiqueta">Botella #{{ numero }}</p>{% endif %}
   <h1>{{ titulo }}</h1>
   <p class="meta">{{ date | fechaLarga }}</p>
+  {% if enlace_instagram %}
+  <p><a class="boton boton-outline" href="{{ enlace_instagram }}" target="_blank" rel="noopener">Ver el posteo en Instagram</a></p>
+  {% endif %}
   <div class="cuerpo">
     {{ content | safe }}
   </div>
