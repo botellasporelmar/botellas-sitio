@@ -12,8 +12,10 @@ permalink: /botellas/
   {% if collections.botellas.length %}
   <div class="rejilla-botellas">
     {% for botella in collections.botellas %}
-    <a class="tarjeta-botella" href="{{ botella.data.enlace_instagram or botella.url }}" {% if botella.data.enlace_instagram %}target="_blank" rel="noopener"{% endif %}>
-      {% if botella.data.numero %}<span class="etiqueta">Botella #{{ botella.data.numero }}{% if botella.data.enlace_instagram %} · en Instagram{% endif %}</span>{% endif %}
+    {% set tieneTexto = (botella.templateContent | trim) != "" %}
+    {% set vaAInstagram = botella.data.enlace_instagram and not tieneTexto %}
+    <a class="tarjeta-botella" href="{{ botella.data.enlace_instagram if vaAInstagram else botella.url }}" {% if vaAInstagram %}target="_blank" rel="noopener"{% endif %}>
+      {% if botella.data.numero %}<span class="etiqueta">Botella #{{ botella.data.numero }}{% if vaAInstagram %} · en Instagram{% endif %}</span>{% endif %}
       <h3>{{ botella.data.titulo }}</h3>
       <p>{{ botella.data.resumen }}</p>
     </a>
