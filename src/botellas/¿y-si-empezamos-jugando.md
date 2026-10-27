@@ -1,6 +1,6 @@
 ---
 titulo: "¿Y si empezamos jugando? "
-numero: 7
+numero: ""
 date: 2026-10-13
 resumen: "Más info sobre estas ideas expuestas por Mariano Sigman. "
 enlace_instagram: https://www.instagram.com/p/Decbse0FiuS/?img_index=1
