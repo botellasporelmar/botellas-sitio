@@ -1,6 +1,6 @@
 ---
 titulo: Don Pedrito
-numero: 5
+numero: ""
 date: 2026-10-05
 resumen: Enlace al cuento completo "Don Pedrito"
 enlace_instagram: https://www.instagram.com/p/DeMarc1ARfA/?img_index=1
