@@ -5,7 +5,7 @@ titulo: Inicio
 <section class="hero contenedor">
   <h1>{{ site.nombre }}</h1>
   <p class="lead">Hay mensajes que viajan hasta encontrar a quien los necesita.</p>
-  <p class="subtitulo-hero">Psicopedagogía + Maternidad</p>
+  <p class="subtitulo-hero">Psicopedagogía + Educación</p>
   <div class="grupo-botones">
     <a class="boton boton-primario" href="/botellas/">Leer las botellas</a>
     <a class="boton boton-outline" href="/acompanamiento/">Acompañamiento profesional</a>
@@ -20,7 +20,7 @@ titulo: Inicio
     {% set tieneTexto = (ultimaBotella.templateContent | trim) != "" %}
     {% set vaAInstagram = ultimaBotella.data.enlace_instagram and not tieneTexto %}
     <a class="tarjeta-botella" href="{{ ultimaBotella.data.enlace_instagram if vaAInstagram else ultimaBotella.url }}" {% if vaAInstagram %}target="_blank" rel="noopener"{% endif %}>
-      {% if ultimaBotella.data.numero %}<span class="etiqueta">Botella #{{ ultimaBotella.data.numero }}{% if vaAInstagram %} · en Instagram{% endif %}</span>{% endif %}
+      {% if vaAInstagram %}<span class="etiqueta">En Instagram</span>{% endif %}
       <h3>{{ ultimaBotella.data.titulo }}</h3>
       <p>{{ ultimaBotella.data.resumen }}</p>
     </a>
